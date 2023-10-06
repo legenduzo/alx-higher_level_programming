@@ -5,7 +5,7 @@ from calculator_1 import add, sub, mul, div
 def main():
     a = 10
     b = 5
-    print(f"{a} + {b} = {a + b}")
+    print("{} + {} = {}".format(a, b, add(a, b))
     print(f"{a} - {b} = {a - b}")
     print(f"{a} * {b} = {a * b}")
     print(f"{a} / {b} = {a // b}")
