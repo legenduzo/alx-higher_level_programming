@@ -1,20 +1,23 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
- * move - move pointers to position
+ * move - move pointer to position and fill a comparison array
  * @len: length
  * @forward: pointer
- * @backward: pointer
+ * @array: array to fill up
  */
 
-void move(int len, listint_t **forward, listint_t **backward)
+void move(int len, listint_t **forward, int (*array)[])
 {
 	int i;
+
+	(*array)[0] = (*forward)->n;
 
 	for (i = 1; i < (len / 2); i++)
 	{
 		*forward = (*forward)->next;
-		*backward = (*backward)->next;
+		(*array)[i] = (*forward)->n;
 	}
 	if (len % 2 == 0)
 		*forward = (*forward)->next;
@@ -30,12 +33,13 @@ void move(int len, listint_t **forward, listint_t **backward)
 
 int is_palindrome(listint_t **head)
 {
-	int len = 0, i, mid;
-	listint_t *forward, *backward, *ptr;
+	int array[1024];
+	int len = 0, mid;
+	listint_t *forward, *ptr;
 
 	if (!head)
 		return (0);
-	if (!(*head))
+	if (!(*head) || (*head)->next == NULL)
 		return (1);
 
 	ptr = *head;
@@ -47,25 +51,16 @@ int is_palindrome(listint_t **head)
 	}
 	mid = len / 2;
 
-	if (len == 1)
-		return (1);
 	forward = *head;
-	backward = *head;
 
-	move(len, &forward, &backward);
+	move(len, &forward, &array);
 
 	while (mid > 0)
 	{
-		if (forward->n != backward->n)
+		if (forward->n != array[mid - 1])
 			return (0);
 		mid--;
-		if (forward->next)
-		{
-			forward = forward->next;
-			backward = *head;
-			for (i = 1; i < mid; i++)
-				backward = backward->next;
-		}
+		forward = forward->next;
 	}
 	return (1);
 }
