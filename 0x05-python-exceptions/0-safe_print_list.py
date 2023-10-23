@@ -9,7 +9,7 @@ def safe_print_list(my_list=[], x=0):
                 print(item, end="")
             else:
                 break
-        print("\n")
+        print()
     except Exception:
         pass
     return count
