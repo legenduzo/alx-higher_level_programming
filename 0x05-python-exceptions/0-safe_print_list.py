@@ -10,5 +10,6 @@ def safe_print_list(my_list=[], x=0):
             else:
                 break
         print("\n")
-    finally:
-        return count
+    except Exception:
+        pass
+    return count
