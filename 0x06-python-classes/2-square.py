@@ -20,7 +20,8 @@ class Square:
         Args:
             size (int): size must be greater than 0
         """
-        self.size = size
+        self.__size = size
+
         @property
         def size(self):
             """private property with getter and setter
