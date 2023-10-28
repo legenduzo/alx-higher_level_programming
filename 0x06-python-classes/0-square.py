@@ -5,6 +5,7 @@
 This module only has a square class which is unimplemented
 """
 
+
 class Square:
     """Represents a square
 
