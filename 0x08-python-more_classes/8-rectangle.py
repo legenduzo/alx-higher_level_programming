@@ -28,8 +28,8 @@ class Rectangle:
         self.height = height
         Rectangle.number_of_instances += 1
         self.print_symbol = (print_symbol
-                if print_symbol
-                else Rectangle.print_symbol)
+                             if print_symbol
+                             else Rectangle.print_symbol)
 
     @property
     def width(self):
