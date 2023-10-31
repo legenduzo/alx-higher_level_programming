@@ -19,7 +19,7 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = '#'
 
-    def __init__(self, width=0, height=0):
+    def __init__(self, width=0, height=0, print_symbol=None):
         """Initializes a new rectangle object
 
         Assigns values to attributes
@@ -27,6 +27,7 @@ class Rectangle:
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
+        self.print_symbol = print_symbol if print_symbol else Rectangle.print_symbol
 
     @property
     def width(self):
@@ -84,7 +85,8 @@ class Rectangle:
         """
         strr = ''
         if self.width != 0 and self.height != 0:
-            strr = '\n'.join([print_symbol * self.width for _ in range(0, self.height)])
+            symbol = str(self.print_symbol)
+            strr = '\n'.join([symbol * self.width for _ in range(0, self.height)])
         return strr
 
     def __repr__(self):
