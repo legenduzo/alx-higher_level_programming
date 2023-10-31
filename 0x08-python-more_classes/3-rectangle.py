@@ -79,5 +79,7 @@ class Rectangle:
         strr = ''
         if self.width != 0 and self.height != 0:
             for i in range(0, self.height):
-                strr += '#' * self.width + '\n'
+                strr += '#' * self.width
+                if i != self.height - 1:
+                    strr += '\n'
         return strr
