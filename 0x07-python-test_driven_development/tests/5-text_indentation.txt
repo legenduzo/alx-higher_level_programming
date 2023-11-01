@@ -1,0 +1,34 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("Hello, my friend.")
+Hello, my friend.
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("Where are you? Are you there?")
+Where are you?
+<BLANKLINE>
+Are you there?
+<BLANKLINE>
+<BLANKLINE>
+>>> text_indentation("Hello: My name is John.")
+Hello:
+<BLANKLINE>
+My name is John.
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This is a sentence. This another?")
+This is a sentence.
+<BLANKLINE>
+This another?
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("Seriously? Are you kidding me: No way.")
+Seriously?
+<BLANKLINE>
+Are you kidding me:
+<BLANKLINE>
+No way.
+<BLANKLINE>
+<BLANKLINE>
