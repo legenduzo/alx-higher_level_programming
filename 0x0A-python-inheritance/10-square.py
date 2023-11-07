@@ -62,7 +62,7 @@ class Square(Rectangle):
         Initialize Square with private size after validation.
         """
         self.integer_validator("size", size)
-        super().__init__(size, size)  # A square is a rectangle with equal width and height
+        super().__init__(size, size)
 
     def area(self):
         """Implements area calculation for the square."""
