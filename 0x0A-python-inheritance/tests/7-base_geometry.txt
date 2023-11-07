@@ -1,7 +1,6 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("age", 21)
-# No output expected
 
 # Test integer_validator with invalid type (string)
 >>> bg.integer_validator("age", "21")
