@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""Object to Json Module
+
+Uses json dump to encode object
+"""
+
+
 import json
-"""Object to Json Module"""
 
 
 def to_json_string(my_obj):
