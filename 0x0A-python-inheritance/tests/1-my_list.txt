@@ -33,3 +33,17 @@
 [1, 2, 3, 4]
 >>> original_list.print_sorted()  # Shows that original list is unchanged
 [1, 2, 3, 4, 5]
+>>> my_list = MyList([10, 9, 8, 7, 6])
+>>> print_sorted_list = my_list.print_sorted()
+[6, 7, 8, 9, 10]
+>>> print(print_sorted_list)
+None
+>>> print(my_list)
+[10, 9, 8, 7, 6]
+>>> mylist = MyList([1,3,2,4])
+>>> str(mylist)
+'[1, 3, 2, 4]'
+>>> str(mylist.print_sorted())
+[1, 2, 3, 4]
+'None'
+
