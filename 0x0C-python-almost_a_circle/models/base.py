@@ -13,7 +13,7 @@ class Base:
 
     def __init__(self, id=None):
         """init method
-        
+
         Initializes the class
 
         Args:
