@@ -26,65 +26,64 @@ class Rectangle(Base):
             y: keyword argument
             id: keyword argument completed with super call
         """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
-        @property
-        def width(self):
-            """private getter and setter for width"""
-            return self.__width
+    @property
+    def width(self):
+        """private getter and setter for width"""
+        return self.__width
 
-        @width.setter
-        def width(self, width):
-            if not isinstance(width, int):
-                raise TypeError('width must be an integer')
-            elif width < 1:
-                raise ValueError('width must be > 0')
-            else:
-                self.__width = width
-                print('Just set width')
+    @width.setter
+    def width(self, width):
+        if not isinstance(width, int):
+            raise TypeError('width must be an integer')
+        elif width < 1:
+            raise ValueError('width must be > 0')
+        else:
+            self.__width = width
 
-        @property
-        def height(self):
-            """private getter and setter for height"""
-            return self.__height
+    @property
+    def height(self):
+        """private getter and setter for height"""
+        return self.__height
 
-        @height.setter
-        def height(self, height):
-            if not isinstance(height, int):
-                raise TypeError('height must be an integer')
-            elif height < 1:
-                raise ValueError('height must be > 0')
-            else:
-                self.__height = height
+    @height.setter
+    def height(self, height):
+        if not isinstance(height, int):
+            raise TypeError('height must be an integer')
+        elif height < 1:
+            raise ValueError('height must be > 0')
+        else:
+            self.__height = height
 
-        @property
-        def x(self):
-            """private getter and setter for x"""
-            return self.__x
+    @property
+    def x(self):
+        """private getter and setter for x"""
+        return self.__x
 
-        @x.setter
-        def x(self, x):
-            if not isinstance(x, int):
-                raise TypeError('x must be an integer')
-            elif x < 0:
-                raise ValueError('x must be >= 0')
-            else:
-                self.__x = x
+    @x.setter
+    def x(self, x):
+        if not isinstance(x, int):
+            raise TypeError('x must be an integer')
+        elif x < 0:
+            raise ValueError('x must be >= 0')
+        else:
+            self.__x = x
 
-        @property
-        def y(self):
-            """private getter and setter for y"""
-            return self.__y
+    @property
+    def y(self):
+        """private getter and setter for y"""
+        return self.__y
 
-        @y.setter
-        def y(self, y):
-            if not isinstance(y, int):
-                raise TypeError('y must be an integer')
-            elif y < 0:
-                raise ValueError('y must be >= 0')
-            else:
-                self.__y = y
+    @y.setter
+    def y(self, y):
+        if not isinstance(y, int):
+            raise TypeError('y must be an integer')
+        elif y < 0:
+            raise ValueError('y must be >= 0')
+        else:
+            self.__y = y

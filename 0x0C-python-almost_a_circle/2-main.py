@@ -14,7 +14,6 @@ if __name__ == "__main__":
         r.width = -10
     except Exception as e:
         print("[{}] {}".format(e.__class__.__name__, e))
-    print(r.width)
 
     try:
         r = Rectangle(10, 2)
