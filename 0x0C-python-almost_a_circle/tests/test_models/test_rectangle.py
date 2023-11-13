@@ -37,6 +37,10 @@ class TestRectangle(unittest.TestCase):
         rect.y = 4
         self.assertEqual(rect.y, 4)
 
+    def test_area(self):
+        r = Rectangle(3, 2)
+        self.assertEqual(r.area(), 6)
+
     def test_property_check(self):
         rect = Rectangle(10, 5, 2, 3)
         with self.assertRaises(ValueError):
