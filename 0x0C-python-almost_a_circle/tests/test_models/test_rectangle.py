@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import unittest
+from io import StringIO
+import sys
 from models.rectangle import Rectangle
 
 
@@ -9,7 +11,7 @@ attr = ['width', 'height', 'x', 'y']
 
 class TestRectangle(unittest.TestCase):
 
-    def test_initialization(self):
+    def test_init(self):
         rect = Rectangle(4, 5, 1, 2, 25)
         self.assertEqual(rect.width, 4)
         self.assertEqual(rect.height, 5)
@@ -17,22 +19,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.y, 2)
         self.assertEqual(rect.id, 25)
 
-    def test_width_property(self):
+    def test_width(self):
         rect = Rectangle(4, 5)
         rect.width = 10
         self.assertEqual(rect.width, 10)
 
-    def test_height_property(self):
+    def test_height(self):
         rect = Rectangle(4, 5)
         rect.height = 10
         self.assertEqual(rect.height, 10)
 
-    def test_x_property(self):
+    def test_x(self):
         rect = Rectangle(4, 5, 1, 2)
         rect.x = 3
         self.assertEqual(rect.x, 3)
 
-    def test_y_property(self):
+    def test_y(self):
         rect = Rectangle(4, 5, 1, 2)
         rect.y = 4
         self.assertEqual(rect.y, 4)
@@ -40,6 +42,15 @@ class TestRectangle(unittest.TestCase):
     def test_area(self):
         r = Rectangle(3, 2)
         self.assertEqual(r.area(), 6)
+
+    def test_display(self):
+        r = Rectangle(2, 2)
+        output = '##\n##\n'
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), output)
 
     def test_property_check(self):
         rect = Rectangle(10, 5, 2, 3)
