@@ -52,6 +52,15 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue(), output)
 
+    def test_str(self):
+        r = Rectangle(5, 5, 1, 1, 3)
+        output = '[Rectangle] (3) 1/1 - 5/5\n'
+        text = StringIO()
+        sys.stdout = text
+        print(r)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(text.getvalue(), output)
+
     def test_property_check(self):
         rect = Rectangle(10, 5, 2, 3)
         with self.assertRaises(ValueError):
