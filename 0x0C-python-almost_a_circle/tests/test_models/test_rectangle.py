@@ -61,6 +61,9 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(text.getvalue(), output)
 
+    def test_update(self):
+        pass
+
     def test_property_check(self):
         rect = Rectangle(10, 5, 2, 3)
         with self.assertRaises(ValueError):
