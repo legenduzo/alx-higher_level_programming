@@ -32,3 +32,17 @@ class Square(Rectangle):
     def size(self, size):
         self.width = size
         self.height = size
+
+    def update(self, *args, **kwargs):
+        """Update method"""
+        keys = ['id', 'size', 'x', 'y']
+        keyset = set()
+        if args:
+            for key, value in zip(keys, args):
+                if hasattr(self, key):
+                    setattr(self, key, value)
+                    keyset.add(key)
+        if kwargs:
+            for key, value in kwargs.items():
+                if hasattr(self, key) and key not in keyset:
+                    setattr(self, key, value)
