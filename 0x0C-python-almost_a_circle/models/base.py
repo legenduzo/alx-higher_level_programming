@@ -67,11 +67,11 @@ class Base:
         """returns a list of instances"""
         file = '{}.json'.format(cls.__name__)
         newlist = []
-        with open(file, 'r') as f:
-            if not f:
-                return []
-            else:
+        try:
+            with open(file, 'r') as f:
                 new = cls.from_json_string(f.read())
                 for dictionary in new:
                     newlist.append(cls.create(**dictionary))
                 return newlist
+        except FileNotFoundError:
+            return []
