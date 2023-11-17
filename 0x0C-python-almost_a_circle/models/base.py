@@ -35,7 +35,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """returns the list of the JSON string 
+        """returns the list of the JSON string
         representation json_string
         """
         if json_string is None:
@@ -54,3 +54,10 @@ class Base:
             else:
                 list_dicts = [obj.to_dictionary() for obj in list_objs]
                 f.write(cls.to_json_string(list_dicts))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set"""
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
