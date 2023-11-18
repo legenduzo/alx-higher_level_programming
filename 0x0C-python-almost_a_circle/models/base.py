@@ -97,7 +97,7 @@ class Base:
                                 ]
                         doc.writerow(row)
                     else:
-                        row = [obj.id,obj.size,obj.x,obj.y]
+                        row = [obj.id, obj.size, obj.x, obj.y]
                         doc.writerow(row)
 
     @classmethod
