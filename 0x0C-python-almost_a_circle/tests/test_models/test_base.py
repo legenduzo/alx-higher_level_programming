@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Test module for base class"""
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -6,14 +7,7 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
-
-    def test_id(self):
-        t = Base(5)
-        self.assertEqual(t.id, 5)
-
-    def test_noid(self):
-        t = Base()
-        self.assertEqual(t.id, 1)
+    """Test class for base"""
 
     def setUp(self):
         '''Imports module, instantiates class'''
@@ -23,6 +17,14 @@ class TestBase(unittest.TestCase):
     def tearDown(self):
         '''Cleans up after each test_method.'''
         pass
+
+    def test_id(self):
+        t = Base(5)
+        self.assertEqual(t.id, 5)
+
+    def test_noid(self):
+        t = Base()
+        self.assertEqual(t.id, 1)
 
     def test_A_nb_objects_private(self):
         '''Tests if nb_objects is private class attribute.'''
