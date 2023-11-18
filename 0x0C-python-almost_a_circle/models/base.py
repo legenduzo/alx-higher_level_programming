@@ -2,6 +2,7 @@
 """Base Module
 """
 import json
+import csv
 
 
 class Base:
@@ -38,7 +39,7 @@ class Base:
         """returns the list of the JSON string
         representation json_string
         """
-        if json_string is None:
+        if not json_string:
             return []
         return json.loads(json_string)
 
@@ -73,5 +74,39 @@ class Base:
                 for dictionary in new:
                     newlist.append(cls.create(**dictionary))
                 return newlist
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Saves an object to a csv file"""
+        file = '{}.csv'.format(cls.__name__)
+        with open(file, 'w', newline='') as f:
+            doc = csv.writer(f, dialect='excel')
+            if not list_objs:
+                doc.writerow('')
+            else:
+                for obj in list_objs:
+                    if cls.__name__ == 'Rectangle':
+                        doc.writerow(f'{obj.id},{obj.width},{obj.height},{obj.x},{obj.y}')
+                    else:
+                        doc.writerow(f'{obj.id},{obj.size},{obj.x},{obj.y}')
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """loads from a csv file"""
+        templist = []
+        file = '{}.csv'.format(cls.__name__)
+        if cls.__name__ == 'Rectangle':
+            temp = cls(1, 1)
+        else:
+            temp = cls(1)
+        try:
+            with open(file, newline='') as f:
+                docreader = csv.reader(f)
+                for row in docreader:
+                    temp.update(row)
+                    templist.append(temp)
+                return templist
         except FileNotFoundError:
             return []
