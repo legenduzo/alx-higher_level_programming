@@ -88,7 +88,13 @@ class Base:
             else:
                 for obj in list_objs:
                     if cls.__name__ == 'Rectangle':
-                        doc.writerow(f'{obj.id},{obj.width},{obj.height},{obj.x},{obj.y}')
+                        doc.writerow(
+                                f'{obj.id},'
+                                f'{obj.width},'
+                                f'{obj.height},'
+                                f'{obj.x},'
+                                f'{obj.y}'
+                                )
                     else:
                         doc.writerow(f'{obj.id},{obj.size},{obj.x},{obj.y}')
 
