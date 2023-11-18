@@ -105,21 +105,17 @@ class Base:
         """loads from a csv file"""
         templist = []
         file = '{}.csv'.format(cls.__name__)
-        if cls.__name__ == 'Rectangle':
-            temp = cls(1, 1)
-        else:
-            temp = cls(1)
         try:
             with open(file, newline='') as f:
                 docreader = csv.reader(f, delimiter=',')
                 for row in docreader:
                     row = [int(x) if x.isdigit() else x for x in row]
-                    temp.update(*row)
-                    templist.append(temp)
                     if cls.__name__ == 'Rectangle':
                         temp = cls(1, 1)
                     else:
                         temp = cls(1)
+                    temp.update(*row)
+                    templist.append(temp)
                 return templist
         except FileNotFoundError:
             return []
