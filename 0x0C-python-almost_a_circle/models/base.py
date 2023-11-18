@@ -88,15 +88,17 @@ class Base:
             else:
                 for obj in list_objs:
                     if cls.__name__ == 'Rectangle':
-                        doc.writerow(
-                                f'{obj.id},'
-                                f'{obj.width},'
-                                f'{obj.height},'
-                                f'{obj.x},'
-                                f'{obj.y}'
-                                )
+                        row = [
+                                obj.id,
+                                obj.width,
+                                obj.height,
+                                obj.x,
+                                obj.y
+                                ]
+                        doc.writerow(row)
                     else:
-                        doc.writerow(f'{obj.id},{obj.size},{obj.x},{obj.y}')
+                        row = [obj.id,obj.size,obj.x,obj.y]
+                        doc.writerow(row)
 
     @classmethod
     def load_from_file_csv(cls):
@@ -109,10 +111,15 @@ class Base:
             temp = cls(1)
         try:
             with open(file, newline='') as f:
-                docreader = csv.reader(f)
+                docreader = csv.reader(f, delimiter=',')
                 for row in docreader:
-                    temp.update(row)
+                    row = [int(x) if x.isdigit() else x for x in row]
+                    temp.update(*row)
                     templist.append(temp)
+                    if cls.__name__ == 'Rectangle':
+                        temp = cls(1, 1)
+                    else:
+                        temp = cls(1)
                 return templist
         except FileNotFoundError:
             return []
