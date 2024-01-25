@@ -3,6 +3,7 @@
 find peak module
 """
 
+
 def find_peak(list_of_integers):
     """find peak doc"""
     if list_of_integers:
