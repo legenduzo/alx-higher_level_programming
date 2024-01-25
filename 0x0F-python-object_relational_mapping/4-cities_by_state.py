@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" lists all states with a name starting with N """
+""" Python SQL ORMs """
 import MySQLdb
 from sys import argv
 
@@ -15,14 +15,14 @@ def main():
 
     cur = db.cursor()
 
-    cur.execute(
-            "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC;"
-            )
+    cur.execute("SELECT cities.id, cities.name, states.name FROM cities \
+            JOIN states ON states.id = cities.state_id \
+            ORDER BY cities.id")
 
-    states = cur.fetchall()
+    lines = cur.fetchall()
 
-    for state in states:
-        print(state)
+    for line in lines:
+        print(line)
 
     cur.close()
     db.close()
